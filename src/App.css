@@ -41,7 +41,7 @@
   height:200px;
   border-radius:10px;
   overflow:hidden;
-  background-image: url('/src/public/hero-bg.png');
+  background-image: url('/hero-bg.png');
   background-size: cover;
   background-position: center center;
   display:flex;
