@@ -1,0 +1,328 @@
+:root{
+  --navy: #001f54;
+  --sky-50: #f0f9ff;
+  --card-blue: #e6f2ff;
+  --card-accent: #cfe8ff;
+  --text: #04263a;
+}
+
+.app-root{
+  min-height:100vh;
+  color:var(--text);
+  background:var(--sky-50);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.navbar{
+  background:var(--navy);
+  color: white;
+  padding: 1% 1rem;
+}
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  margin:0;
+  font-size:1.4rem;
+  font-weight:700;
+}
+
+.page-title{ text-align:center; margin:1.5rem 0 0.25rem; font-size:2rem; color:var(--navy) }
+.page-sub{ text-align:center; margin:0 0 1rem; color:#094a6b }
+
+/* Hero header with background image */
+.hero{
+  position:relative;
+  width:100%;
+  height:200px;
+  border-radius:10px;
+  overflow:hidden;
+  background-image: url('/src/assets/hero-bg.png');
+  background-size: cover;
+  background-position: center center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(10, 39, 90, 0.45), rgba(22, 48, 92, 0.25));
+}
+.hero-inner{ position:relative; z-index:2; text-align:center; color:white; padding:0 1rem }
+.hero .page-title{ color:rgb(13, 9, 84); margin:0; font-size:2.25rem }
+.hero .page-sub{ color:rgba(10, 75, 150, 0.9); margin-top:0.5rem }
+
+@media (max-width:600px){
+  .hero{ height:160px }
+  .hero .page-title{ font-size:1.4rem }
+}
+
+.container{
+  /* full width container used for full-width bars; inner constrained content goes into .content */
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+.content{
+  max-width:1100px;
+  margin:1.25rem auto;
+  padding:1rem;
+}
+
+.toolbar{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:1rem;
+  width: 80%;
+ 
+}
+.search{
+  width:100%;
+  max-width:420px;
+  padding:0.5rem 0.75rem;
+  border-radius:8px;
+  border:1px solid #0f689b;
+  background:white;
+}
+
+.search.wide{ max-width:720px }
+
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap:1rem;
+}
+
+/* Simple loader shown while fetching contacts */
+.loader{ display:flex; align-items:center; justify-content:flex-start; padding:1.2rem; color:var(--navy); }
+.loader .spinner{ width:36px; height:36px; border-radius:50%; border:4px solid rgba(3,39,77,0.12); border-top-color:var(--navy); animation: spin 900ms linear infinite }
+@keyframes spin{ to{ transform: rotate(360deg) } }
+
+/* Notification banner */
+.notification{ background: linear-gradient(90deg, rgba(4,64,128,0.08), rgba(4,64,128,0.06)); color:var(--navy); padding:0.6rem 0.9rem; border-radius:8px; margin-bottom:0.9rem; box-shadow: 0 6px 18px rgba(3,39,77,0.04) }
+
+/* View/hide control in the control bar */
+.view-label{ font-weight:600; color:var(--navy); margin-right:0.5rem }
+.control-inner .left .btn{ min-width:72px; padding:0.45rem 0.6rem }
+
+.contact-card{
+  display:block;
+  background: linear-gradient(180deg,var(--card-blue),var(--card-accent));
+  border-radius:10px;
+  padding:1rem;
+  position:relative;
+  overflow:hidden; /* ensure actions or other content don't visually escape the rounded card */
+  /* soft, subtle shadow */
+  box-shadow: 0 6px 20px rgba(3,39,77,0.06), 0 2px 6px rgba(3,39,77,0.04);
+  text-align:left;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.contact-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(3,39,77,0.08), 0 6px 18px rgba(3,39,77,0.05);
+}
+.card-content{ flex:1; display:flex; flex-direction:column }
+.card-header{
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+  margin-bottom:0.5rem;
+}
+.avatar{
+  background:#bfe6ff;
+  color:var(--navy);
+  height:56px;
+  width:56px;
+  min-width:56px;
+  min-height:56px;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  overflow:hidden;
+}
+.avatar img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
+.card-title{ flex:1; min-width:0 }
+.card-title h3{
+  margin:0;
+  font-size:1.05rem;
+  /* show full name (no truncation) */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word;
+}
+.relation{ margin:0; font-size:0.85rem; color:#094a6b }
+.card-body p{ margin:0.35rem 0; font-size:0.9rem }
+
+.favorite-btn{
+  background:transparent;
+  border:0;
+  font-size:1.25rem;
+  cursor:pointer;
+  color: #083a5b;
+}
+.favorite-btn.fav{ color: #ffb300; filter: drop-shadow(0 2px 6px rgba(255,160,0,0.12)) }
+
+/* Control bar that stretches full width */
+.control-bar{
+  width:100%;
+  background: linear-gradient(180deg, rgba(0,31,84,0.06), rgba(0,31,84,0.04));
+  padding:0.75rem 0;
+}
+.control-inner{ display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin:0 auto; padding:0 1rem }
+.control-inner .left{ flex:3; display:flex; align-items:center }
+.control-inner .right{ flex:1; display:flex; justify-content:flex-end; gap:0.5rem; align-items:center }
+.controls{ display:flex; gap:0.5rem; align-items:center }
+
+.card-actions{ margin-left:auto; display:flex; flex-direction:column; gap:0.35rem; align-items:center; justify-content:flex-start; flex:0 0 auto; padding-left:0.25rem }
+.card-actions button{ box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center; width:40px; height:36px; padding:0; border-radius:8px }
+.delete-btn{ background:transparent; border:0; cursor:pointer; color:#a52a2a; font-size:1rem; border-radius:8px }
+.edit-btn{ background:transparent; border:0; cursor:pointer; color:#083a5b; font-size:1rem; border-radius:8px }
+.edit-btn:hover{ background: rgba(8,58,91,0.06) }
+.delete-btn:hover{ background: rgba(165,42,42,0.08) }
+
+/* Footer mirrors navbar */
+.footer{
+  background:var(--navy);
+  color:white;
+  padding:0.6rem 1rem;
+  margin-top:1.25rem;
+}
+.footer .footer-text{ text-align:center; font-size:0.95rem }
+
+.empty{ color:#135e88; padding:2rem; text-align:center }
+
+.btn{
+  border:0;
+  padding:0.5rem 0.75rem;
+  border-radius:8px;
+  cursor:pointer;
+  background:#e6eef8;
+  color:var(--navy);
+}
+.btn.primary{ background:var(--navy); color:white }
+.add-btn{ background:transparent; border:1px solid rgba(255,255,255,0.12); color:white; padding:0.45rem 0.75rem }
+
+/* Wider buttons in the control bar so text fits on one line */
+.control-inner .right .btn{
+  min-width:96px;
+  padding:0.45rem 0.6rem;
+  white-space:nowrap;
+}
+.control-inner .right .btn.primary{ min-width:120px }
+
+/* View button styling */
+.view-btn{ background: transparent; border: 1px solid rgba(0,31,84,0.12); border-radius:8px }
+.view-btn:hover{ background: rgba(0,31,84,0.04) }
+
+/* Toggle style for favorites button */
+.control-inner .right .btn.toggle-btn{
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid rgba(0,31,84,0.12);
+  padding: 0.45rem 0.75rem;
+  border-radius: 9999px;
+  min-width:170px;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+}
+.control-inner .right .btn.toggle-btn.active{
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+  box-shadow: 0 8px 20px rgba(0,31,84,0.08);
+}
+
+/* Toggle switch inside the favorite button */
+.toggle-label{ margin-left:0; font-weight:600; display:inline-flex; align-items:center }
+.toggle-switch{
+  width:44px;
+  height:24px;
+  border-radius:9999px;
+  background: rgba(3,39,77,0.06);
+  position:relative;
+  display:inline-block;
+  flex:0 0 auto;
+  transition: background 180ms ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+}
+.toggle-switch .knob{
+  position:absolute;
+  top:2px;
+  left:2px;
+  width:20px;
+  height:20px;
+  background:white;
+  border-radius:50%;
+  box-shadow: 0 2px 6px rgba(3,39,77,0.12);
+  transition: transform 180ms ease, background 180ms ease;
+}
+.toggle-switch.on{ background: var(--navy) }
+.toggle-switch.on .knob{ transform: translateX(20px); background: white }
+
+/* When the toggle button is active, ensure label color is readable */
+.control-inner .right .btn.toggle-btn.active .toggle-label{ color:white }
+
+/* Navbar logo */
+.nav-left{ display:flex; align-items:center; gap:0.5rem }
+.nav-logo{ height:36px; width:auto; display:block }
+.nav-right{ width:36px }
+
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg, rgba(2,6,23,0.35), rgba(2,6,23,0.45));
+  padding:1rem;
+}
+.modal{
+  z-index:1001;
+  background: linear-gradient(135deg, #5477a5 0%, #2876b1 50%, #a3bcdd 100%);
+  color: white;
+  border-radius:12px;
+  max-width:560px;
+  width:100%;
+  padding:1.25rem 1.5rem;
+  box-shadow:0 18px 48px rgba(2,6,23,0.35);
+}
+.modal h2{ margin-top:0; color: #fffb; text-shadow: 0 2px 8px rgba(2,6,23,0.35) }
+.form{ display:grid; gap:0.6rem }
+.form label{ display:flex; flex-direction:column; font-size:0.9rem; color: rgba(255,255,255,0.95) }
+.form input{ padding:0.55rem; border-radius:8px; border:1px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.98); color: var(--navy) }
+.form input:focus{ outline:none; box-shadow: 0 0 0 4px rgba(86,160,255,0.16) }
+.form-actions{ display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.5rem }
+
+/* Inline field error */
+.field-error{ color: #ffe6e6; background: rgba(0,0,0,0.12); padding:0.35rem 0.5rem; border-radius:6px; margin-top:0.35rem; font-size:0.85rem }
+.form input[aria-invalid="true"]{ box-shadow: 0 0 0 3px rgba(255,80,80,0.12); border-color: rgba(255,80,80,0.5) }
+
+@media (max-width:600px){
+  .nav-inner{ padding:0 0.5rem }
+  .search{ width:100% }
+}
+
+/* Larger logo by default, scaled down on small screens */
+.nav-logo{ height:44px; width:auto; display:block }
+@media (max-width:600px){
+  .nav-logo{ height:32px }
+}
