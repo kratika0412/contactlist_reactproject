@@ -39,3 +39,22 @@ This project was created as part of a frontend development assignment to demonst
 
 ## Folder Structure
 
+contactlist_reactproject/
+├── public/
+│ └── vite.svg
+├── src/
+│ ├── assets/
+│ ├── components/
+│ │ ├── AddContactForm.jsx
+│ │ ├── ContactCard.jsx
+│ │ ├── ContactList.jsx
+│ │ └── SearchBar.jsx
+│ ├── data/
+│ │ └── contact.js
+│ ├── App.jsx
+│ ├── App.css
+│ ├── main.jsx
+│ └── index.css
+├── package.json
+├── vite.config.js
+└── README.md
