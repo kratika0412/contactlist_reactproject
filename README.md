@@ -1,16 +1,41 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Contact List React App
 
-Currently, two official plugins are available:
+This is a simple Contact List web application built using React.  
+It allows users to view, search, and add new contacts in an easy and organized way. The design is clean, responsive, and simple to use.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- View the list of all contacts  
+- Search contacts by name using a search bar  
+- Add a new contact to the list (optional feature)  
+- Mark contacts as favorites  
+- Responsive layout that works on both desktop and mobile screens  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Objective
+
+This project was created as part of a frontend development assignment to demonstrate:
+
+- Understanding of React component design  
+- Handling state using React hooks  
+- Working with and simulating API data  
+- Building a clear and user-friendly interface  
+
+---
+
+## Tech Stack
+
+- **React (Vite)** – for building the frontend  
+- **Tailwind CSS** – for styling and layout  
+- **JavaScript (ES6+)** – for logic and interactivity  
+- **Mock API / Local data** – for simulating data fetching  
+
+---
+
+## Folder Structure
+
